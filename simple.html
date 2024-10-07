@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Simple Calculator</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <style>
+            .btn {
+                padding: 19px;
+            }
+            #result {
+                font-size: 24px;
+                text-align: center;
+                border: 1px solid #ddd;
+                height: 50px;
+            }
+        </style>
+    </head>
+    <body class="d-flex justify-content-center align-items-center vh-100 m-0">
+        <div class="container-fluid w-25 p-3">
+            <table class="table">
+                <tr>
+                    <td colspan="3">
+                        <p id="result"></p>
+                    </td>
+                    <td><button class="btn btn-warning" id="clear" onclick="clearScreen()" value="C">C</button></td>
+                </tr>
+                <tr>
+                    <td><button class="btn btn-info" id="seven" onclick="display('7')">7</button></td>
+                    <td><button class="btn btn-info" id="eight" onclick="display('8')">8</button></td>
+                    <td><button class="btn btn-info" id="nine" onclick="display('9')">9</button></td>
+                    <td><button class="btn btn-success" id="divide" onclick="display('/')">/</button></td>
+                </tr>
+                <tr>
+                    <td><button class="btn btn-info" id="four" onclick="display('4')">4</button></td>
+                    <td><button class="btn btn-info" id="five" onclick="display('5')">5</button></td>
+                    <td><button class="btn btn-info" id="six" onclick="display('6')">6</button></td>
+                    <td><button class="btn btn-success" id="multiply" onclick="display('*')">*</button></td>
+                </tr>
+                <tr>
+                    <td><button class="btn btn-info" id="one" onclick="display('1')">1</button></td>
+                    <td><button class="btn btn-info" id="two" onclick="display('2')">2</button></td>
+                    <td><button class="btn btn-info" id="three" onclick="display('3')">3</button></td>
+                    <td><button class="btn btn-success" id="minus" onclick="display('-')">-</button></td>
+                </tr>
+                <tr>
+                    <td><button class="btn btn-info" id="zero" onclick="display('0')">0</button></td>
+                    <td><button class="btn btn-info" id="dot" onclick="display('.')">.</button></td>
+                    <td><button class="btn btn-danger" id="equal" onclick="solve()">=</button></td>
+                    <td><button class="btn btn-success" id="plus" onclick="display('+')">+</button></td>
+                </tr>
+            </table>
+        </div>
+        <script>
+            function display(val){
+                document.getElementById("result").innerHTML+=val;
+                return val;
+            }
+            function solve(){
+                let x = document.getElementById("result").innerHTML;
+                let y = eval(x);
+                document.getElementById("result").innerHTML = y;
+                return y;
+            }
+            function clearScreen(){
+                document.getElementById("result").innerHTML=""
+            }
+        </script>
+    </body>
+</html>
